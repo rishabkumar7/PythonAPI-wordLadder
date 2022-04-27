@@ -2,7 +2,7 @@
 # shortest chain transformation from source
 # to target
 from collections import deque
-from flask import Flask
+from flask import Flask, render_template
 from flask_restful import Api, Resource, reqparse, request
 
 app = Flask(__name__)
@@ -99,6 +99,12 @@ class Api(Resource):
 
 
 api.add_resource(Api, '/api')
+
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
 
 # Driver code
 if __name__ == '__main__':
